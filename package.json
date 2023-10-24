@@ -1,0 +1,33 @@
+{
+  "name": "aya",
+  "version": "1.0.0",
+  "description": "Test task",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "prettier": "npx prettier --ignore-path .eslintignore --check .",
+    "prettier:fix": "npx prettier --ignore-path .eslintignore --check --write .",
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "prepare": "husky install"
+  },
+  "author": "Oleg Gavrilin",
+  "license": "ISC",
+  "dependencies": {
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "*.{ts,md}": [
+      "prettier --ignore-path .eslintignore --check --write",
+      "eslint --fix"
+    ]
+  }
+}
