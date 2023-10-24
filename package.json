@@ -1,8 +1,8 @@
 {
-  "name": "aya",
+  "name": "aya-test-task",
   "version": "1.0.0",
   "description": "Test task",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
@@ -14,9 +14,17 @@
   "author": "Oleg Gavrilin",
   "license": "ISC",
   "dependencies": {
-    "typeorm": "^0.3.17"
+    "config": "^3.3.9",
+    "path": "^0.12.7",
+    "pg": "^8.11.3",
+    "ts-node": "^10.9.1",
+    "typeorm": "^0.3.10",
+    "typeorm-extension": "^2.3.1",
+    "typeorm-naming-strategies": "^4.1.0"
   },
   "devDependencies": {
+    "@types/config": "^3.3.2",
+    "@types/node": "^20.8.8",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.1.1",
