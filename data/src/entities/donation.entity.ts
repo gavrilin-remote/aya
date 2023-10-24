@@ -1,6 +1,7 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import Model from "./model.entity";
 import { DecimalTransformer } from "../transformers/decimal.transformer";
+import { Employee } from "./emloyee.entity";
 
 @Entity("donations")
 export class Donatioin extends Model {
@@ -16,4 +17,11 @@ export class Donatioin extends Model {
     type: "decimal",
   })
   amount: number;
+
+  /**
+   * The employee
+   */
+  @ManyToOne(() => Employee)
+  @JoinColumn()
+  employee: Employee;
 }
