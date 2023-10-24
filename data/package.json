@@ -1,13 +1,13 @@
 {
-    "name": "aya-test-data",
-    "scripts": {
-        "extension": "NODE_CONFIG_DIR='../config/' ts-node --transpile-only -r tsconfig-paths/register ../node_modules/typeorm-extension/dist/cli/index.js",
-        "extension:create": "npm run extension db:create -- --initialDatabase aya-test-db -d src/data-source.ts",
-        "extension:drop": "npm run extension db:drop -- --initialDatabase aya-test-db -d src/data-source.ts",
-        "migration:create": "npm run orm migration:create src/migrations/migration",
-        "migration:down": "npm run orm migration:revert -- -d src/data-source.ts",
-        "migration:generate": "npm run orm migration:generate src/migrations/migration -- -d src/data-source.ts",
-        "migration:up": "npm run orm migration:run -- -d src/data-source.ts",
-        "orm": "NODE_CONFIG_DIR='../config/' typeorm-ts-node-commonjs"
-    }
+  "name": "aya-test-data",
+  "scripts": {
+    "extension": "NODE_CONFIG_DIR='../config/' ts-node --transpile-only -r tsconfig-paths/register ../node_modules/typeorm-extension/dist/cli/index.js",
+    "extension:create": "npm run extension db:create -- --initialDatabase aya-test-db -d src/data-source.ts",
+    "extension:drop": "npm run extension db:drop -- --initialDatabase aya-test-db -d src/data-source.ts",
+    "migration:create": "npm run orm migration:create src/migrations/migration",
+    "migration:down": "npm run orm migration:revert -- -d src/data-source.ts",
+    "migration:generate": "npm run orm migration:generate src/migrations/migration -- -d src/data-source.ts",
+    "migration:up": "npm run orm migration:run -- -d src/data-source.ts",
+    "orm": "NODE_CONFIG_DIR='../config/' typeorm-ts-node-commonjs"
+  }
 }

@@ -6,5 +6,5 @@ export default {
     username: "POSTGRES_USER",
     password: "POSTGRES_PASSWORD",
     database: "POSTGRES_DB",
-  }
+  },
 };

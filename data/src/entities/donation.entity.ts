@@ -4,7 +4,7 @@ import { DecimalTransformer } from "../transformers/decimal.transformer";
 
 @Entity("donations")
 export class Donatioin extends Model {
-/**
+  /**
    * Donation amount in USD
    *
    * @example "100.00"
