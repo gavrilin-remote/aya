@@ -22,10 +22,10 @@ export class Migration1698162940991 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query(`DROP TABLE "statement"`);
-    await queryRunner.query(`DROP TABLE "donation"`);
+    await queryRunner.query(`DROP TABLE "statements"`);
+    await queryRunner.query(`DROP TABLE "donations"`);
     await queryRunner.query(`DROP INDEX "public"."IDX_2badd7fe7d9fce6aa939a3f9d9"`);
     await queryRunner.query(`DROP TABLE "exchange_rates"`);
-    await queryRunner.query(`DROP TABLE "department"`);
+    await queryRunner.query(`DROP TABLE "departments"`);
   }
 }
