@@ -1,6 +1,6 @@
 {
   "name": "aya-test-importer",
   "scripts": {
-    "db:import": "NODE_CONFIG_DIR='../config/' ts-node --transpile-only -r tsconfig-paths/register src/importer.ts"
+    "db:import": "NODE_CONFIG_DIR='../config/' ts-node --transpile-only -r tsconfig-paths/register src/DumpImporter.ts"
   }
 }

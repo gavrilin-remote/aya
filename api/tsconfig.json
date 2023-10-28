@@ -1,0 +1,13 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      "baseUrl": "src",
+      "lib": ["es2021.promise"],
+      "paths": {
+        "@app/*": ["*"],
+        "@data/*": ["../../data/src/*"],
+        "@services/*": ["../../services/src/*"]
+      }
+    }
+  }
+  

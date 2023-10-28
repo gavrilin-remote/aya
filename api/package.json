@@ -1,0 +1,7 @@
+{
+    "name": "aya-test-api",
+    "scripts": {
+        "start:api": "NODE_CONFIG_DIR='../config/' ts-node --transpile-only -r tsconfig-paths/register index.ts"
+    }
+  }
+  
