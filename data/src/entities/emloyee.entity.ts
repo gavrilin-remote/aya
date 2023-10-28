@@ -1,4 +1,4 @@
-import { Column, JoinColumn, Entity, ManyToOne, OneToMany } from "typeorm";
+import { Column, JoinColumn, Entity, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
 import Model from "./model.entity";
 import { Department } from "./department.entity";
 import { Statement } from "./statement.entity";
@@ -6,6 +6,14 @@ import { Donatioin } from "./donation.entity";
 
 @Entity("employees")
 export class Employee extends Model {
+  /**
+   * The unique record identifier
+   *
+   * @example "44355"
+   */
+  @PrimaryColumn()
+  id: number;
+
   /**
    * Employee first name
    *
@@ -20,7 +28,7 @@ export class Employee extends Model {
    * @example "Doe"
    */
   @Column()
-  sername: string;
+  surname: string;
 
   /**
    * The department employee belongs to

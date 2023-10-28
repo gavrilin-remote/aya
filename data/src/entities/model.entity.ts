@@ -1,10 +1,4 @@
-import {
-  BaseEntity,
-  CreateDateColumn,
-  DeleteDateColumn,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from "typeorm";
+import { BaseEntity, CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from "typeorm";
 
 /**
  * Represents an abstract base model that all other entities in the system extend from.
@@ -27,14 +21,6 @@ import {
  * ```
  */
 export default abstract class Model extends BaseEntity {
-  /**
-   * The unique record identifier
-   *
-   * @example "44355"
-   */
-  @PrimaryGeneratedColumn("increment")
-  id: number;
-
   /**
    * The date and time the record was created
    *

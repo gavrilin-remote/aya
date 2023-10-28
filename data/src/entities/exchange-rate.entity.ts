@@ -1,4 +1,4 @@
-import { Column, Entity, Index } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
 import { DecimalTransformer } from "../transformers/decimal.transformer";
 
@@ -6,6 +6,14 @@ import Model from "./model.entity";
 
 @Entity("exchange_rates")
 export class ExchangeRate extends Model {
+  /**
+   * The unique record identifier
+   *
+   * @example "44355"
+   */
+  @PrimaryGeneratedColumn("increment")
+  id: number;
+
   /**
    * The exchange rate price
    *

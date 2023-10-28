@@ -1,10 +1,18 @@
-import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import Model from "./model.entity";
 import { DecimalTransformer } from "../transformers/decimal.transformer";
 import { Employee } from "./emloyee.entity";
 
 @Entity("statements")
 export class Statement extends Model {
+  /**
+   * The unique record identifier
+   *
+   * @example "44355"
+   */
+  @PrimaryColumn()
+  id: number;
+
   /**
    * Salary amount in USD
    *
