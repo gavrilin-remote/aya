@@ -1,6 +1,5 @@
 import fs from "fs/promises";
 import path from "path";
-import { parseDumpToObjects } from "./parser";
 
 import { AppDataSource } from "@data/data-source";
 import { ExchangeRate } from "@data/entities/exchange-rate.entity";
@@ -9,12 +8,15 @@ import { Department } from "@data/entities/department.entity";
 import { Statement } from "@data/entities/statement.entity";
 import { type EmployeeListItemInput, type RateInput } from "./types";
 import { Donatioin } from "@data/entities/donation.entity";
+import { DumpParser } from "./DumpParser";
 
 class DumpImporter {
   _dumpFilePath: string;
+  _dumpParser: DumpParser;
 
   constructor(dumpFileName: string) {
     this._dumpFilePath = path.join(__dirname, dumpFileName);
+    this._dumpParser = new DumpParser();
   }
 
   async run(): Promise<void> {
@@ -22,8 +24,8 @@ class DumpImporter {
     console.log("DataSource initialized...");
     const dumpString = await this.loadDumpFile();
     console.log("Dump file is loaded...");
-    const { rates, employees } = parseDumpToObjects(dumpString);
-    console.log("Dump string is converted to objects...");
+    const { rates, employees } = this.dumpParser.parse(dumpString);
+    console.log("Dump string is parsed to object model...");
     await this.importExchangeRates(rates);
     console.log("Exchange Rates imported...");
     await this.importEmployees(employees);
@@ -49,6 +51,7 @@ class DumpImporter {
   async importEmployees(employees: EmployeeListItemInput[]): Promise<void> {
     await Promise.all(
       employees.map(async ({ employee, department, statements, donations }) => {
+        // save department first
         const departmentToSave = new Department();
         departmentToSave.name = department.name;
         departmentToSave.id = department.id;
@@ -81,6 +84,7 @@ class DumpImporter {
               if (!exchangeRate) {
                 throw new Error(`Exchange rate for ${currency} not found`);
               }
+              // convert to USD
               donationToSave.amount = amount * exchangeRate.price;
             }
             donationToSave.createdAt = donation.date;
@@ -104,6 +108,10 @@ class DumpImporter {
 
   get dumpFilePath(): string {
     return this._dumpFilePath;
+  }
+
+  get dumpParser(): DumpParser {
+    return this._dumpParser;
   }
 }
 

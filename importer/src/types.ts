@@ -34,7 +34,38 @@ export interface EmployeeListItemInput {
   donations: DonatioinInput[];
 }
 
-export interface DumpInputV1 {
+export interface DumpInput {
   employees: EmployeeListItemInput[];
   rates: RateInput[];
+}
+
+export enum FieldTypes {
+  string = "string",
+  number = "number",
+  date = "date",
+  numberWithCurrency = "numberWithCurrency",
+}
+
+export type Codec = Record<string, FieldTypes>;
+
+export interface ParserConfig {
+  title: string;
+  delimiters: {
+    rates: string;
+    rate: string;
+    field: string;
+    employee: string;
+    salary: string;
+    statements: string;
+    department: string;
+    donations: string;
+    donation: string;
+  };
+  codecs: {
+    rate: Codec;
+    employee: Codec;
+    department: Codec;
+    statement: Codec;
+    donation: Codec;
+  };
 }
