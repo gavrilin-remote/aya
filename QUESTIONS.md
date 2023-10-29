@@ -22,3 +22,6 @@ answering the questions.
    * modify `run` function in `DumpImporter` to get dump string in arguments
    * create POST api endpoint to recieve dump file from web interface
    * create new instance of DumpImporter and run importer in request handler
+
+
+// PS: Parser functionality looks to me a bit ugly and not universal. I'd rework it if have more time.
