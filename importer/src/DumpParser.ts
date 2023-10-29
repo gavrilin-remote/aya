@@ -144,6 +144,7 @@ export class DumpParser {
 
       return { employee, department, statements, donations };
     });
+
     return {
       rates,
       employees,

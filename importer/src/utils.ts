@@ -41,7 +41,7 @@ export const FieldTransformers: Record<
 
 /**
  * Parse field string to separated key value.
- * Throw critical error if key or value is absent.
+ * Throw critical error if key or value is absent or empty strings.
  * @param field: string in form 'key: value'
  * @returns [key: string, value: string]
  */
